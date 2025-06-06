@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+
 
 part 'movies_event.dart';
 part 'movies_state.dart';
