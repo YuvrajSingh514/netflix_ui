@@ -1,24 +1,24 @@
-class NowPlayingMovies {
+class NowPlayingMoviesData {
   Dates? dates;
   int? page;
-  List<Results>? results;
+  List<NowPlayingMoviesModel>? moviesList;
   int? totalPages;
   int? totalResults;
 
-  NowPlayingMovies(
+  NowPlayingMoviesData(
       {this.dates,
       this.page,
-      this.results,
+      this.moviesList,
       this.totalPages,
       this.totalResults});
 
-  NowPlayingMovies.fromJson(Map<String, dynamic> json) {
+  NowPlayingMoviesData.fromJson(Map<String, dynamic> json) {
     dates = json['dates'] != null ? new Dates.fromJson(json['dates']) : null;
     page = json['page'];
     if (json['results'] != null) {
-      results = <Results>[];
+      moviesList = <NowPlayingMoviesModel>[];
       json['results'].forEach((v) {
-        results!.add(new Results.fromJson(v));
+        moviesList!.add(new NowPlayingMoviesModel.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
@@ -31,8 +31,8 @@ class NowPlayingMovies {
       data['dates'] = this.dates!.toJson();
     }
     data['page'] = this.page;
-    if (this.results != null) {
-      data['results'] = this.results!.map((v) => v.toJson()).toList();
+    if (this.moviesList != null) {
+      data['results'] = this.moviesList!.map((v) => v.toJson()).toList();
     }
     data['total_pages'] = this.totalPages;
     data['total_results'] = this.totalResults;
@@ -59,7 +59,7 @@ class Dates {
   }
 }
 
-class Results {
+class NowPlayingMoviesModel {
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
@@ -75,7 +75,7 @@ class Results {
   double? voteAverage;
   int? voteCount;
 
-  Results(
+  NowPlayingMoviesModel(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -91,7 +91,7 @@ class Results {
       this.voteAverage,
       this.voteCount});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  NowPlayingMoviesModel.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();
