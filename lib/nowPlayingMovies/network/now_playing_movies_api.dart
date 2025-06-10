@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:movies_app/model/now_playing_movies_data.dart';
+import 'package:movies_app/nowPlayingMovies/model/now_playing_movies_data.dart';
 import 'package:movies_app/network/api_endpoint.dart';
 import 'package:movies_app/network/network_base.dart';
 

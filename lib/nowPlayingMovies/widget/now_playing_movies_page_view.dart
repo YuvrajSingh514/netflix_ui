@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/bloc/movies_bloc.dart';
+
 import 'package:movies_app/constants/image_url.dart';
+import 'package:movies_app/nowPlayingMovies/bloc/movies_bloc.dart';
 
 class NowPlayingMoviesPageView extends StatelessWidget {
   const NowPlayingMoviesPageView({super.key});
@@ -18,23 +19,28 @@ class NowPlayingMoviesPageView extends StatelessWidget {
           return ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: SizedBox(
-              height: 520,
+              height: 420,
+
               child: PageView.builder(
                 itemCount: state.moviesList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {},
-                    child: Container(
-                      height: 400,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            "$imageUrl${state.moviesList[index].posterPath}",
+                    child: Material(
+                      elevation: 10,
+                      shadowColor: Colors.pink,
+                      child: Container(
+                        height: 400,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.grey),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              "$imageUrl${state.moviesList[index].posterPath}",
+                            ),
                           ),
                         ),
                       ),

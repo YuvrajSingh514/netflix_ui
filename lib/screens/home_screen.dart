@@ -1,8 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:movies_app/widgets/home_screen_button.dart';
-import 'package:movies_app/widgets/now_playing_movies_page_view.dart';
+import 'package:movies_app/nowPlayingMovies/widget/now_playing_movies_page_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -63,9 +61,11 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 400,
-                child: NowPlayingMoviesPageView()),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: SizedBox(height: 400, child: NowPlayingMoviesPageView()),
+              ),
             ],
           ),
         ),
