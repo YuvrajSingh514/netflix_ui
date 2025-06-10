@@ -6,7 +6,7 @@ class NetworkBase {
     BaseOptions(
       baseUrl: ApiEndpoint.baseUrl,
       queryParameters: {
-        'apiKey': '647adb592ac9d078192fb998036da48b',
+        'api_key': '647adb592ac9d078192fb998036da48b',
       },
       connectTimeout: Duration(seconds: 3),
       receiveTimeout: Duration(seconds: 3),

@@ -9,7 +9,8 @@ class NowPlayingMoviesApi {
   Future<NowPlayingMoviesData?> getMovie() async {
     Response? response;
     try {
-      response = await NetworkBase.dio.get(ApiEndpoint.endPointMovies);
+      response = await NetworkBase.dio.get(ApiEndpoint.endPointMovies, 
+      options: Options(headers: {'Connection': 'keep-alive'}));
 
       if (response.statusCode == 200) {
         log(response.data.toString());

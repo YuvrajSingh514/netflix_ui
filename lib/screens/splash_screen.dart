@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movies_app/screens/home_screen.dart';
+
 import 'package:movies_app/widgets/bottom_nav_bar.dart';
 
 class SplashScreen extends StatefulWidget {

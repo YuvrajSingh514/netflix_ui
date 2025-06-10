@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/bloc/movies_bloc.dart';
 import 'package:movies_app/screens/splash_screen.dart';
 
 void main() {
@@ -11,10 +13,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(scaffoldBackgroundColor: Colors.black),
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+    return MultiBlocProvider(
+      providers: [BlocProvider<MoviesBloc>(create: (context) => MoviesBloc())],
+      child: Builder(
+        builder: (context) {
+          return MaterialApp(
+            theme: ThemeData(scaffoldBackgroundColor: Colors.black),
+            debugShowCheckedModeBanner: false,
+            home: SplashScreen(),
+          );
+        },
+      ),
     );
   }
 }
