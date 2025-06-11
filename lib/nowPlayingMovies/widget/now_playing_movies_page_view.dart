@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,36 +19,36 @@ class NowPlayingMoviesPageView extends StatelessWidget {
         } else if (state is MoviesLoadedState) {
           return ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: SizedBox(
-              height: 420,
-
-              child: PageView.builder(
-                itemCount: state.moviesList.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {},
-                    child: Material(
-                      elevation: 10,
-                      shadowColor: Colors.pink,
-                      child: Container(
-                        height: 400,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.grey),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                              "$imageUrl${state.moviesList[index].posterPath}",
-                            ),
+            child: PageView.builder(
+              itemCount: state.moviesList.length,
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()
+              ),
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {},
+                  child: Material(
+                    elevation: 10,
+                    shadowColor: Colors.pink,
+                    child: Container(
+                      height: 400,
+                      width: 280,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.grey),
+                        image: DecorationImage(
+                          
+                          image: CachedNetworkImageProvider(
+                            "$imageUrl${state.moviesList[index].posterPath}",
                           ),
                         ),
                       ),
+                      
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
           );
         } else if (state is MoviesErrorState) {

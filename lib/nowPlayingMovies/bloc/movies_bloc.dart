@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:movies_app/nowPlayingMovies/model/now_playing_movies_data.dart';
 import 'package:movies_app/nowPlayingMovies/network/now_playing_movies_api.dart';
 
+
 part 'movies_event.dart';
 part 'movies_state.dart';
 

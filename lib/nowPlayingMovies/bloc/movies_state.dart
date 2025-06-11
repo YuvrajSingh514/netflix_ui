@@ -8,10 +8,9 @@ final class MoviesLoadingState extends MoviesState {}
 
 final class MoviesLoadedState extends MoviesState {
   final List<NowPlayingMoviesModel> moviesList;
+  
 
   MoviesLoadedState({required this.moviesList});
-
- 
 }
 
 final class MoviesErrorState extends MoviesState {

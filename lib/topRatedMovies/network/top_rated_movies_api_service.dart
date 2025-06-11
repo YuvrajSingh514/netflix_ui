@@ -1,23 +1,25 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:movies_app/nowPlayingMovies/model/now_playing_movies_data.dart';
 import 'package:movies_app/constantNetwork/api_endpoint.dart';
 import 'package:movies_app/constantNetwork/network_base.dart';
+import 'package:movies_app/topRatedMovies/model/top_rated_movies_model.dart';
 
-class NowPlayingMoviesApi {
-  Future<NowPlayingMoviesData?> getMovie() async {
+
+
+class TopRatedMoviesApiService {
+  Future<TopRatedMoviesModel?> getTopRatedMovies() async {
     Response? response;
     try {
-      response = await NetworkBase.dio.get(ApiEndpoint.endPointMovies, 
+      response = await NetworkBase.dio.get(ApiEndpoint.topRatedMovies, 
       options: Options(headers: {'Connection': 'keep-alive'}));
 
       if (response.statusCode == 200) {
         log(response.data.toString());
-        NowPlayingMoviesData nowPlayingMovies = NowPlayingMoviesData.fromJson(
+        TopRatedMoviesModel topRatedMoviesModel = TopRatedMoviesModel.fromJson(
           response.data,
         );
-        return nowPlayingMovies;
+        return topRatedMoviesModel;
       } else {
         return null;
       }

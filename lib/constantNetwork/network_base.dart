@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:movies_app/network/api_endpoint.dart';
+import 'package:movies_app/constantNetwork/api_endpoint.dart';
 
 class NetworkBase {
   static Dio dio = Dio(
