@@ -2,6 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/constants/image_url.dart';
+import 'package:movies_app/moviesDetail/bloc/movies_detail_bloc.dart';
+import 'package:movies_app/moviesDetail/model/movies_detail_model.dart';
+import 'package:movies_app/moviesDetail/screen/movies_detail_screen.dart';
 import 'package:movies_app/popularTvSeries/bloc/popular_tv_series_bloc.dart';
 
 class PopularTvSeriesListView extends StatelessWidget {
@@ -24,7 +27,10 @@ class PopularTvSeriesListView extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {} ,
+                onTap: () {
+                  Navigator.push(context, 
+                  MaterialPageRoute(builder: (context)=> MoviesDetailScreen(movieId: )));
+                } ,
                 child: Container(
                   height: 100,
                   width: 90,

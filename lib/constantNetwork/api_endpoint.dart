@@ -6,6 +6,6 @@ class ApiEndpoint {
   static const String trendingMovies = 'trending/movie/day';
   static const String topRatedMovies = 'movie/top_rated';
   static const String popularTvSeries = 'tv/popular';
-  static const String movieDetail = 'movie/{movie_id}';
+  static String movieDetail = 'movie/$movieId';
   
 }

@@ -1,6 +1,5 @@
 part of 'movies_detail_bloc.dart';
 
-
 sealed class MoviesDetailState {}
 
 final class MoviesDetailInitial extends MoviesDetailState {}
@@ -8,7 +7,7 @@ final class MoviesDetailInitial extends MoviesDetailState {}
 final class MoviesDetailLoadingState extends MoviesDetailState {}
 
 final class MoviesDetailLoadedState extends MoviesDetailState {
-  final List<MoviesDetailModel> moviesDetailList;
+  final MoviesDetailModel moviesDetailList;
 
   MoviesDetailLoadedState({required this.moviesDetailList});
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/moviesDetail/bloc/movies_detail_bloc.dart';
 
 import 'package:movies_app/nowPlayingMovies/bloc/movies_bloc.dart';
 import 'package:movies_app/popularTvSeries/bloc/popular_tv_series_bloc.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<UpcomingMoviesBloc>(create: (context)=> UpcomingMoviesBloc()),
         BlocProvider<TrendingMoviesBloc>(create: (context)=> TrendingMoviesBloc()),
         BlocProvider<TopRatedMoviesBloc>(create: (context)=> TopRatedMoviesBloc()),
-        BlocProvider<PopularTvSeriesBloc>(create: (context)=>PopularTvSeriesBloc())
+        BlocProvider<PopularTvSeriesBloc>(create: (context)=>PopularTvSeriesBloc()),
+        BlocProvider<MoviesDetailBloc>(create: (context)=> MoviesDetailBloc()),
       ],
       child: Builder(
         builder: (context) {
