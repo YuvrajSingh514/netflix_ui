@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/constants/image_url.dart';
+import 'package:movies_app/moviesDetail/screen/movies_detail_screen.dart';
 import 'package:movies_app/topRatedMovies/bloc/top_rated_movies_bloc.dart';
-
 
 class TopRatedMoviesListView extends StatelessWidget {
   const TopRatedMoviesListView({super.key});
@@ -21,11 +21,21 @@ class TopRatedMoviesListView extends StatelessWidget {
             itemCount: state.topRatedMoviesList.length,
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(
-              parent: AlwaysScrollableScrollPhysics()
+              parent: AlwaysScrollableScrollPhysics(),
             ),
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {} ,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => MoviesDetailScreen(
+                            movieId: state.topRatedMoviesList[index].id ?? 0,
+                          ),
+                    ),
+                  );
+                },
                 child: Container(
                   height: 100,
                   width: 90,

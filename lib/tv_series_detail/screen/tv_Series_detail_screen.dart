@@ -2,23 +2,25 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/constants/image_url.dart';
-import 'package:movies_app/moviesDetail/bloc/movies_detail_bloc.dart';
 
-class MoviesDetailScreen extends StatelessWidget {
-  final int movieId;
-  const MoviesDetailScreen({super.key, required this.movieId});
+import 'package:movies_app/tv_series_detail/bloc/tv_series_detail_bloc.dart';
+
+class TvSeriesDetailScreen extends StatelessWidget {
+  final int seriesId;
+  const TvSeriesDetailScreen({super.key, required this.seriesId});
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<MoviesDetailBloc>(
+    BlocProvider.of<TvSeriesDetailBloc>(
       context,
-    ).add(GetMoviesDetailList(movieId: movieId));
+    ).add(GetTvSeriesDetailList(seriesId));
+
     return BlocBuilder(
-      bloc: BlocProvider.of<MoviesDetailBloc>(context),
+      bloc: BlocProvider.of<TvSeriesDetailBloc>(context),
       builder: (context, state) {
-        if (state is MoviesDetailLoadingState) {
+        if (state is TvSeriesDetailLoadingState) {
           return Center(child: CircularProgressIndicator());
-        } else if (state is MoviesDetailLoadedState) {
+        } else if (state is TvSeriesDetailLoadedState) {
           return SafeArea(
             child: Column(
               children: [
@@ -30,7 +32,7 @@ class MoviesDetailScreen extends StatelessWidget {
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: CachedNetworkImageProvider(
-                            '$imageUrl${state.moviesDetailList.backdropPath}',
+                            '$imageUrl${state.tvSeriesDetailList.backdropPath}',
                           ),
                         ),
                       ),
@@ -50,7 +52,7 @@ class MoviesDetailScreen extends StatelessWidget {
               ],
             ),
           );
-        } else if (state is MoviesDetailErrorState) {
+        } else if (state is TvSeriesDetailErrorState) {
           return Center(
             child: Text(
               state.error,

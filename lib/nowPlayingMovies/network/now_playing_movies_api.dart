@@ -30,3 +30,34 @@ class NowPlayingMoviesApi {
     }
   }
 }
+
+
+// import 'dart:convert';
+
+
+// import 'package:http/http.dart' as http;
+
+// import 'package:movies_app/nowPlayingMovies/model/now_playing_movies_data.dart';
+
+// class NowPlayingMoviesApi {
+//   static String url =
+//       'https://api.themoviedb.org/3/movie/now_playing?api_key=647adb592ac9d078192fb998036da48b';
+//   static Uri uri = Uri.parse(url);
+//   List<NowPlayingMoviesData> nowPlayingMoviesList = [];
+//   Future<List<NowPlayingMoviesData>?> getMovie() async {
+//     try {
+//       final response = await http.get(uri);
+//       if (response.statusCode == 200) {
+//         final body = json.decode(response.body);
+//         NowPlayingMoviesData nowPlayingMoviesData =
+//             NowPlayingMoviesData.fromJson(body);
+//         nowPlayingMoviesList.add(nowPlayingMoviesData);
+//       }
+//       return nowPlayingMoviesList;
+//     } catch (e) {
+//       // ignore: avoid_print
+//       print('error');
+//       return null;
+//     }
+//   }
+// }
