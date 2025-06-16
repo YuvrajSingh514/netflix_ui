@@ -7,4 +7,6 @@ class ApiEndpoint {
   static const String popularTvSeries = 'tv/popular';
   static String movieDetail(int movieId) => 'movie/$movieId';
   static String tvSeriesDetail(int seriesId) => 'tv/$seriesId';
+  static String moviesRecommendation(int movieId) => 'movie/$movieId/recommendations';
+
 }
