@@ -10,6 +10,9 @@
 analyzer:
   errors:
     invalid_use_of_visible_for_testing_member: ignore
+   
+    unnecessary_new: ignore
+    unnecessary_this: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

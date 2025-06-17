@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/MoviesRecomendation/bloc/movies_recommendation_bloc.dart';
 import 'package:movies_app/constants/image_url.dart';
-import 'package:movies_app/popularTvSeries/bloc/popular_tv_series_bloc.dart';
+
 
 class MoviesRecommendationList extends StatelessWidget {
   final int movieId;

@@ -8,6 +8,7 @@ import 'package:movies_app/popularTvSeries/bloc/popular_tv_series_bloc.dart';
 import 'package:movies_app/screens/splash_screen.dart';
 import 'package:movies_app/topRatedMovies/bloc/top_rated_movies_bloc.dart';
 import 'package:movies_app/trendingMovies/bloc/trending_movies_bloc.dart';
+import 'package:movies_app/tvRecommendations/bloc/tv_recommendation_bloc.dart';
 import 'package:movies_app/tv_series_detail/bloc/tv_series_detail_bloc.dart';
 import 'package:movies_app/upcomingMovies/bloc/upcoming_movies_bloc.dart';
 
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<PopularTvSeriesBloc>(create: (context)=>PopularTvSeriesBloc()),
         BlocProvider<MoviesDetailBloc>(create: (context)=> MoviesDetailBloc()),
         BlocProvider<TvSeriesDetailBloc>(create: (context)=> TvSeriesDetailBloc()),
-        BlocProvider<MoviesRecommendationBloc>(create: (context)=> MoviesRecommendationBloc())
+        BlocProvider<MoviesRecommendationBloc>(create: (context)=> MoviesRecommendationBloc()),
+        BlocProvider<TvRecommendationBloc>(create: (context)=> TvRecommendationBloc()),
       ],
       child: Builder(
         builder: (context) {

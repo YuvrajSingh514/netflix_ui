@@ -12,19 +12,22 @@ class PlayElevatedButton extends StatelessWidget {
       ),
 
       onPressed: () {},
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.play_arrow, size: 30, color: Colors.black),
-          Text(
-            'Play',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.play_arrow, size: 30, color: Colors.black),
+            Text(
+              'Play',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

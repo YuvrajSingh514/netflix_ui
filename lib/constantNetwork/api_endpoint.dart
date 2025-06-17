@@ -8,5 +8,8 @@ class ApiEndpoint {
   static String movieDetail(int movieId) => 'movie/$movieId';
   static String tvSeriesDetail(int seriesId) => 'tv/$seriesId';
   static String moviesRecommendation(int movieId) => 'movie/$movieId/recommendations';
+  static String tvRecommendation(int seriesId) => 'tv/$seriesId/recommendations';
+  static String searchMovie(String query) => 'search/movie?query=$query';
+
 
 }
