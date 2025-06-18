@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:movies_app/constants/image_url.dart';
+import 'package:movies_app/moviesDetail/screen/movies_detail_screen.dart';
 import 'package:movies_app/nowPlayingMovies/bloc/movies_bloc.dart';
 
 class NowPlayingMoviesPageView extends StatelessWidget {
@@ -27,7 +28,17 @@ class NowPlayingMoviesPageView extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => MoviesDetailScreen(
+                            movieId: state.moviesList[index].id ?? 0,
+                          ),
+                    ),
+                  );
+                  },
                   child: Material(
                     elevation: 10,
                     shadowColor: Colors.pink,

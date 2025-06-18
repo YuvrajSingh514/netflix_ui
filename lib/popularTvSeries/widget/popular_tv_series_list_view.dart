@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/constants/image_url.dart';
 import 'package:movies_app/popularTvSeries/bloc/popular_tv_series_bloc.dart';
+import 'package:movies_app/tv_series_detail/screen/tv_series_detail_screen.dart';
 
 class PopularTvSeriesListView extends StatelessWidget {
   const PopularTvSeriesListView({super.key});
@@ -24,7 +25,10 @@ class PopularTvSeriesListView extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {} ,
+                onTap: () {
+                  Navigator.push(context, 
+                  MaterialPageRoute(builder: (context)=> TvSeriesDetailScreen(seriesId: state.popularTvSeriesList[index].id??0),),);
+                } ,
                 child: Container(
                   height: 100,
                   width: 90,

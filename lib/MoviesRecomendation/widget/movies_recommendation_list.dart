@@ -1,41 +1,34 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/MoviesRecomendation/bloc/movies_recommendation_bloc.dart';
 import 'package:movies_app/constants/image_url.dart';
-import 'package:movies_app/moviesDetail/screen/movies_detail_screen.dart';
-import 'package:movies_app/topRatedMovies/bloc/top_rated_movies_bloc.dart';
 
-class TopRatedMoviesListView extends StatelessWidget {
-  const TopRatedMoviesListView({super.key});
+
+class MoviesRecommendationList extends StatelessWidget {
+  final int movieId;
+  const MoviesRecommendationList({super.key, required this.movieId});
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<TopRatedMoviesBloc>(context).add(GetTopRatedMoviesList());
+    BlocProvider.of<MoviesRecommendationBloc>(
+      context,
+    ).add(GetMoviesRecommendationList(movieId));
     return BlocBuilder(
-      bloc: BlocProvider.of<TopRatedMoviesBloc>(context),
+      bloc: BlocProvider.of<MoviesRecommendationBloc>(context),
       builder: (context, state) {
-        if (state is TopRatedMoviesLoadingState) {
+        if (state is MoviesRecommendationLoadingState) {
           return Center(child: CircularProgressIndicator());
-        } else if (state is TopRatedMoviesLoadedState) {
+        } else if (state is MoviesRecommendationLoadedState) {
           return ListView.separated(
-            itemCount: state.topRatedMoviesList.length,
+            itemCount: state.moviesRecommendationList!.length,
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics(),
             ),
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => MoviesDetailScreen(
-                            movieId: state.topRatedMoviesList[index].id ?? 0,
-                          ),
-                    ),
-                  );
-                },
+                onTap: () {},
                 child: Container(
                   height: 100,
                   width: 90,
@@ -43,7 +36,7 @@ class TopRatedMoviesListView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
                       image: CachedNetworkImageProvider(
-                        '$imageUrl${state.topRatedMoviesList[index].posterPath}',
+                        '$imageUrl${state.moviesRecommendationList![index]!.posterPath}',
                       ),
                     ),
                   ),
@@ -53,7 +46,7 @@ class TopRatedMoviesListView extends StatelessWidget {
             separatorBuilder:
                 (BuildContext context, int index) => SizedBox(width: 2),
           );
-        } else if (state is TopRatedMoviesErrorState) {
+        } else if (state is MoviesRecommendationErrorState) {
           return Center(
             child: Text(
               state.error,
