@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/popularTvSeries/widget/popular_tv_series_list_view.dart';
+import 'package:movies_app/screens/search_screen.dart';
 import 'package:movies_app/topRatedMovies/widget/top_rated_movies_list_view.dart';
 import 'package:movies_app/trendingMovies/widget/trending_movies_list_view.dart';
 import 'package:movies_app/upcomingMovies/widget/upcoming_movies_list_view.dart';
@@ -27,7 +28,14 @@ class HomeScreen extends StatelessWidget {
                     Image.asset('assets/netflix logo.png', height: 35),
                     Spacer(),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SearchScreen(),
+                          ),
+                        );
+                      },
                       icon: Icon(Icons.search_sharp, color: Colors.white),
                     ),
                     SizedBox(width: 5),

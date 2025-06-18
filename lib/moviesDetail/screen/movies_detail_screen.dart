@@ -67,6 +67,8 @@ class MoviesDetailScreen extends StatelessWidget {
                           children: [
                             Flexible(
                               child: Text(
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                                 state.moviesDetailList.title ?? '',
                                 style: TextStyle(
                                   fontSize: 18,

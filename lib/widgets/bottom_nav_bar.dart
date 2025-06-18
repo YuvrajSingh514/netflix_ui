@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/screens/home_screen.dart';
-import 'package:movies_app/screens/hot_new_screen.dart';
+import 'package:movies_app/screens/hot_news_screen.dart';
 import 'package:movies_app/screens/search_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -18,7 +18,7 @@ class BottomNavBar extends StatelessWidget {
             tabs: [
               Tab(icon: Icon(Icons.home), text: 'Home'),
               Tab(icon: Icon(Icons.search), text: 'Search'),
-              Tab(icon: Icon(Icons.photo_library_outlined), text: 'Hot&New'),
+              Tab(icon: Icon(Icons.photo_library_outlined), text: 'Hot News'),
             ],
             unselectedLabelColor: Colors.grey,
             labelColor: Colors.white,

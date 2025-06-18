@@ -10,6 +10,8 @@ class ApiEndpoint {
   static String moviesRecommendation(int movieId) => 'movie/$movieId/recommendations';
   static String tvRecommendation(int seriesId) => 'tv/$seriesId/recommendations';
   static String searchMovie(String query) => 'search/movie?query=$query';
+  static const String hotNews = 'trending/all/day';
+
 
 
 }
