@@ -66,9 +66,11 @@ class SearchMovieListView extends StatelessWidget {
             },
           );
         } else if (state is SearchMovieErrorState) {
-          return Text(
-            state.error,
-            style: TextStyle(fontSize: 20, color: Colors.white),
+          return Center(
+            child: Text(
+              state.error,
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
           );
         }
         return Text(

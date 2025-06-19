@@ -23,20 +23,22 @@ class _SearchScreenState extends State<SearchScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CupertinoSearchTextField(
-              controller: _searchMovieController,
-              prefixIcon: Icon(CupertinoIcons.search, color: Colors.black,),
-              suffixIcon: Icon(Icons.cancel, color: Colors.black,),
-              backgroundColor: Colors.grey,
-              style: TextStyle(color: Colors.black),
-              onSubmitted: (query) {
-                context.read<SearchMovieBloc>().add(
-                  GetSearchMovieList(query: query),
-                );
-              },
-             
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: CupertinoSearchTextField(
+                controller: _searchMovieController,
+                prefixIcon: Icon(CupertinoIcons.search, color: Colors.black),
+                suffixIcon: Icon(Icons.cancel, color: Colors.black),
+                backgroundColor: Colors.grey,
+                style: TextStyle(color: Colors.black),
+                onSubmitted: (query) {
+                  context.read<SearchMovieBloc>().add(
+                    GetSearchMovieList(query: query),
+                  );
+                },
+              ),
             ),
-            SearchMovieListView(query:_searchMovieController.text )
+            SearchMovieListView(query: _searchMovieController.text),
           ],
         ),
       ),

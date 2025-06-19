@@ -25,7 +25,7 @@ class BottomNavBar extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: [HomeScreen(), SearchScreen(), HotNewScreen()],
+          children: [HomeScreen(), SearchScreen(), HotNewsScreen()],
         ),
       ),
     );
