@@ -38,7 +38,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
               ),
             ),
-            SearchMovieListView(query: _searchMovieController.text),
+            SizedBox(
+              height: 300,
+              child: SearchMovieListView(query: _searchMovieController.text),
+            ),
           ],
         ),
       ),

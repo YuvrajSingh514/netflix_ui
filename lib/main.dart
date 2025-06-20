@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/MoviesRecomendation/bloc/movies_recommendation_bloc.dart';
 import 'package:movies_app/hotNews/bloc/hot_news_bloc.dart';
 import 'package:movies_app/moviesDetail/bloc/movies_detail_bloc.dart';
+import 'package:movies_app/news/bloc/news_bloc.dart';
 
 import 'package:movies_app/nowPlayingMovies/bloc/movies_bloc.dart';
 import 'package:movies_app/popularTvSeries/bloc/popular_tv_series_bloc.dart';
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<MoviesRecommendationBloc>(create: (context)=> MoviesRecommendationBloc()),
         BlocProvider<TvRecommendationBloc>(create: (context)=> TvRecommendationBloc()),
         BlocProvider<SearchMovieBloc>(create :(context)=> SearchMovieBloc()),
-        BlocProvider<HotNewsBloc>(create: (contex)=> HotNewsBloc()),
+        // BlocProvider<HotNewsBloc>(create: (contex)=> HotNewsBloc()),
+        BlocProvider<NewsBloc>(create: (context)=> NewsBloc()),
       ],
       child: Builder(
         builder: (context) {

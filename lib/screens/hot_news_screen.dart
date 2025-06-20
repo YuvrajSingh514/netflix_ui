@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/hotNews/widget/hot_news_list.dart';
+import 'package:movies_app/news/widget/news_list_view.dart';
 
 class HotNewsScreen extends StatelessWidget {
   const HotNewsScreen({super.key});
@@ -16,7 +16,7 @@ class HotNewsScreen extends StatelessWidget {
           style: TextStyle(fontSize: 16, color: Colors.white),
         ),
       ),
-      body: HotNewsList(),
+      body: NewsListView(),
     );
   }
 }
